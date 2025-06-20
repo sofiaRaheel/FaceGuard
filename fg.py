@@ -32,11 +32,11 @@ class FaceGuard:
         self.attendance_records = []
         self.load_known_faces()
 
-        # ✅ Initialize blockchain logger
+        #  Initialize blockchain logger
         self.blockchain = BlockchainLogger(
             abi_path="Attendance_compData.json",
-            contract_address="0xD7e59cF6A438EACB2a4AD8A6Cf9FA3Bf87a55264",
-            private_key="0x99e22e0f50e07ef8ab19c2b1f93f9787733d19654f55bc2ecba9c9cbce391a70"
+            contract_address="Deploy key",
+            private_key="TKEY"
         )
 
     def load_known_faces(self):
@@ -82,14 +82,14 @@ class FaceGuard:
         try:
             img_array = prepare_image(image)
         except Exception as e:
-            print(f"❌ Image preparation failed: {e}")
+            print(f" Image preparation failed: {e}")
             return [], []
 
         try:
             face_locations = face_recognition.face_locations(img_array)
             face_encodings = face_recognition.face_encodings(img_array, face_locations)
         except Exception as e:
-            print(f"❌ face_recognition failed: {e}")
+            print(f" face_recognition failed: {e}")
             return [], []
 
         recognized_names = []
@@ -180,7 +180,7 @@ def main():
                 st.write(f"**Name:** {record['name']}")
                 st.write(f"**Time:** {record['timestamp']}")
                 valid = faceguard.verify_identity(record['name'], record['timestamp'], record['hash'])
-                status = "✅ Valid" if valid else "❌ Tampered"
+                status = " Valid" if valid else " Tampered"
                 st.write(f"**Status:** {status}")
                 st.markdown("---")
 
