@@ -3,7 +3,7 @@ import json
 from eth_account import Account
 
 class BlockchainLogger:
-    def __init__(self, abi_path, contract_address, private_key="0x99e22e0f50e07ef8ab19c2b1f93f9787733d19654f55bc2ecba9c9cbce391a70"):
+    def __init__(self, abi_path, contract_address, private_key=ADD KEY"):
         # Connect to Ganache
         self.web3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
         
